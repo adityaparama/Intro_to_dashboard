@@ -1,5 +1,3 @@
-Packages:
-
 pandas
 matplotlib.pyplot
 plotly.express 
@@ -7,3 +5,4 @@ numpy
 seaborn 
 datetime 
 dash
+gunicorn
