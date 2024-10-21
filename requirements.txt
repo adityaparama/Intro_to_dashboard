@@ -1,4 +1,9 @@
-dash
-gunicorn
+Packages:
+
 pandas
-plotly
+matplotlib.pyplot
+plotly.express 
+numpy
+seaborn 
+datetime 
+dash
