@@ -1,5 +1,3 @@
-with open('app.py', 'w') as f:
-    f.write('''
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
@@ -441,5 +439,3 @@ def update_metrics_and_charts(selected_year, selected_person_status):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-    ''')
