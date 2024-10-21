@@ -1,6 +1,6 @@
 pandas
 matplotlib
-plotly.express 
+plotly 
 numpy
 seaborn 
 datetime 
