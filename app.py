@@ -440,8 +440,4 @@ def update_metrics_and_charts(selected_year, selected_person_status):
             fig_age, fig_abuse, fig_reporter, fig_action, fig_language)
 
 if __name__ == '__main__':
-  #   app.run_server(debug=True)
-
-    app.run_server(port=8050)
-    public_url = ngrok.connect(8050)
-    print("Dash app is running at:", public_url)
+    app.run_server(debug=True)
