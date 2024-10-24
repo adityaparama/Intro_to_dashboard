@@ -121,7 +121,7 @@ app.layout = html.Div(
 
               # Metric 3
               html.Div([
-                  html.H4("Avg. of Response Time", style={
+                  html.H4("Avg. of Response Time (Days)", style={
                       'color': 'white',
                       'marginTop': '5px',
                       'lineHeight':'0',
