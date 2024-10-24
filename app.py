@@ -6,7 +6,7 @@ import seaborn as sns
 import datetime as dt
 from dash import Dash, html, dcc, Input, Output
 
-! git clone https://github.com/adityaparama/intro_to_dashboard_group_project
+# ! git clone https://github.com/adityaparama/intro_to_dashboard_group_project
 df = pd.read_csv('/content/intro_to_dashboard_group_project/nsw_adc_dataset.csv', index_col='Case ID')
 df.head()
 
@@ -68,7 +68,7 @@ app.layout = html.Div(
                       'fontSize': '12px'
                   })
               ], style={
-                  'background': 'linear-gradient(135deg, #FFC20A 0%, #00FFCC 100%)',
+                  'background': '#FFC20A',
                   'borderRadius': '15px',
                   'padding': '0px',
                   'margin':'5px',
@@ -104,7 +104,7 @@ app.layout = html.Div(
                       'fontSize': '12px'
                   })
               ], style={
-                  'background': 'linear-gradient(135deg, #0C7BDC 0%, #FFD700 100%)',
+                  'background': '#0C7BDC',
                   'borderRadius': '15px',
                   'padding': '0px',
                   'margin':'5px',
@@ -135,7 +135,7 @@ app.layout = html.Div(
                       'fontSize': '35px'
                   }),
               ], style={
-                  'background': 'linear-gradient(135deg, #56B4E9 0%, #ADD8E6 100%)',
+                  'background': '#E1BE6A',
                   'borderRadius': '15px',
                   'padding': '0px',
                   'margin':'5px',
@@ -171,7 +171,7 @@ app.layout = html.Div(
                       'fontSize': '12px'
                   })
               ], style={
-                  'background': 'linear-gradient(135deg, #A65A14 0%, #FF8C00 100%)',
+                  'background': '#40B0A6',
                   'borderRadius': '15px',
                   'padding': '0px',
                   'margin':'5px',
@@ -298,7 +298,7 @@ def create_pie_chart(df, x_col, title, height, width):
                      'Female': '#FFC20A',  # Orange
                      'Aboriginal': '#FFC20A',
                      'Non-English':'#0C7BDC',
-                     'Male': '0C7BDC',    # Green
+                     'Male': '#0C7BDC',    # Green
                      'Non-Aboriginal': '#0C7BDC',
                      'English':'#FFC20A'
                  }                )
@@ -441,3 +441,7 @@ def update_metrics_and_charts(selected_year, selected_person_status):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+
+    # app.run_server(port=8050)
+    # public_url = ngrok.connect(8050)
+    # print("Dash app is running at:", public_url)
