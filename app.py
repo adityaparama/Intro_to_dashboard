@@ -6,8 +6,9 @@ import seaborn as sns
 import datetime as dt
 from dash import Dash, html, dcc, Input, Output
 
-! git clone https://github.com/adityaparama/intro_to_dashboard_group_project
-df = pd.read_csv('/content/intro_to_dashboard_group_project/nsw_adc_dataset.csv', index_col='Case ID')
+# ! git clone https://github.com/adityaparama/intro_to_dashboard_group_project
+# df = pd.read_csv('/content/intro_to_dashboard_group_project/nsw_adc_dataset.csv', index_col='Case ID')
+df = pd.read_csv('nsw_adc_dataset.csv', index_col='Case ID')
 df.head()
 
 df['Report Date'] = pd.to_datetime(df['Report Date'])
