@@ -6,7 +6,8 @@ import seaborn as sns
 import datetime as dt
 from dash import Dash, html, dcc, Input, Output
 
-df = pd.read_csv('nsw_adc_dataset.csv', index_col='Case ID')
+! git clone https://github.com/adityaparama/intro_to_dashboard_group_project
+df = pd.read_csv('/content/intro_to_dashboard_group_project/nsw_adc_dataset.csv', index_col='Case ID')
 df.head()
 
 df['Report Date'] = pd.to_datetime(df['Report Date'])
@@ -23,7 +24,7 @@ app.layout = html.Div(
         html.Div([
             # Title on the left
             html.H1("NSW Ageing and Disability Commission",
-                    style={'textAlign': 'left', 'fontFamily':'Arial', 'marginTop': '20px', 'backgroundColor': '#FFFFFF', 'padding': '10px'}),
+                    style={'textAlign': 'left', 'fontFamily':'Arial', 'fontSize':'30px', 'marginTop': '20px', 'backgroundColor': '#FFFFFF', 'padding': '10px'}),
 
             # Dropdown filters on the right
             html.Div([
@@ -39,7 +40,7 @@ app.layout = html.Div(
                              value='All', placeholder="Category",
                              style={'width': '200px', 'backgroundColor': '#D3D3D3', 'color': 'black',})
             ], style={'display': 'flex', 'gap': '20px', 'padding-right':'20px'})  # Align dropdowns with flexbox
-        ], style={'display': 'flex', 'justify-content': 'space-between', 'align-items': 'center', 'backgroundColor': '#FFFFFF', 'padding': '0px', 'width': '100%'}),
+        ], style={'display': 'flex', 'justify-content': 'space-between', 'align-items': 'center', 'backgroundColor': '#FFFFFF', 'padding': '0px', 'width': '100%','height':'69px'}),
 
         # Chart Element
       html.Div([
@@ -67,7 +68,7 @@ app.layout = html.Div(
                       'fontSize': '12px'
                   })
               ], style={
-                  'background': 'linear-gradient(135deg, #009E73 0%, #00FFCC 100%)',
+                  'background': 'linear-gradient(135deg, #FFC20A 0%, #00FFCC 100%)',
                   'borderRadius': '15px',
                   'padding': '0px',
                   'margin':'5px',
@@ -77,7 +78,7 @@ app.layout = html.Div(
                   'flexDirection': 'column',
                   'justifyContent': 'center',
                   'alignItems': 'center',
-                  'width': '250px',
+                  'width': '300px',
                   'height': '100px'
               }),
 
@@ -103,7 +104,7 @@ app.layout = html.Div(
                       'fontSize': '12px'
                   })
               ], style={
-                  'background': 'linear-gradient(135deg, #E69F00 0%, #FFD700 100%)',
+                  'background': 'linear-gradient(135deg, #0C7BDC 0%, #FFD700 100%)',
                   'borderRadius': '15px',
                   'padding': '0px',
                   'margin':'5px',
@@ -113,7 +114,7 @@ app.layout = html.Div(
                   'flexDirection': 'column',
                   'justifyContent': 'center',
                   'alignItems': 'center',
-                  'width': '250px',
+                  'width': '300px',
                   'height': '100px'
               }),
 
@@ -144,7 +145,7 @@ app.layout = html.Div(
                   'flexDirection': 'column',
                   'justifyContent': 'center',
                   'alignItems': 'center',
-                  'width': '250px',
+                  'width': '300px',
                   'height': '100px'
               }),
 
@@ -180,7 +181,7 @@ app.layout = html.Div(
                   'flexDirection': 'column',
                   'justifyContent': 'center',
                   'alignItems': 'center',
-                  'width': '250px',
+                  'width': '300px',
                   'height': '100px'
               }),
 
@@ -199,7 +200,7 @@ app.layout = html.Div(
           html.Div(dcc.Graph(id='age-histogram'),
              style={'padding': '8px', 'backgroundColor': '#fff',
                     'border': '1px solid #ccc', 'borderRadius': '15px',
-                    'margin': '0px','margin-left':'5px','marginTop':'5px', 'width': '810px', 'height': '190px',})
+                    'margin': '0px','margin-left':'20px','marginTop':'5px', 'width': '1025px', 'height': '190px',})
 
 ], style={'display': 'grid',
           'gridTemplateColumns': '1fr auto',
@@ -216,45 +217,45 @@ app.layout = html.Div(
         html.Div(dcc.Graph(id='report-line-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
                         'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '557px', 'height': '314px'}),
+                        'width': '650px', 'height': '271px'}),
 
         html.Div(dcc.Graph(id='abuse-type-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
                         'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '329px', 'height': '314px'}),
+                        'width': '445px', 'height': '271px'}),
 
         html.Div(dcc.Graph(id='reporter-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
                         'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '380px', 'height': '314px'})
+                        'width': '500px', 'height': '271px'})
     ], style={'display': 'flex', 'gap': '10px', 'marginBottom': '10px'}),
 
     html.Div([
         html.Div(dcc.Graph(id='gender-pie-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
                         'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '160px', 'height': '240px'}),
+                        'width': '190px', 'height': '212px'}),
 
         html.Div(dcc.Graph(id='culture-pie-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
                         'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '160px', 'height': '240px'}),
+                        'width': '190px', 'height': '212px'}),
 
         html.Div(dcc.Graph(id='language-pie-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
                         'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '160px', 'height': '240px'}),
+                        'width': '190px', 'height': '212px'}),
 
         html.Div(dcc.Graph(id='language-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
-                        'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '329px', 'height': '240px'}),
+                        'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '6px',
+                        'width': '445px', 'height': '212px'}),
 
         html.Div(dcc.Graph(id='action-taken-chart'),
                  style={'display': 'flex', 'padding': '8px', 'backgroundColor': '#fff',
                         'border': '1px solid #ccc', 'borderRadius': '15px', 'margin': '5px',
-                        'width': '380px', 'height': '240px'})
-    ], style={'display': 'flex', 'gap': '10px', 'marginBottom': '10px'}),
+                        'width': '500px', 'height': '212px'})
+    ], style={'display': 'flex', 'gap': '10px', 'marginBottom': '10px','width':'100%'}),
 
 ])
 
@@ -264,8 +265,8 @@ def create_line_chart(df, y_col, title, height, width):
     fig = px.line(counts, x='Year', y='Count', color=y_col,
                   title=title,
                   color_discrete_map={
-                      'Call': '#009E73',   # Green
-                      'Report': '#E69F00'  # Orange
+                      'Call': '#FFC20A',   # Green
+                      'Report': '#0C7BDC'  # Orange
                   })
     fig.update_layout(xaxis_title='', yaxis_title='', height=height, width=width, paper_bgcolor='rgba(0,0,0,0)',
                       margin={
@@ -279,7 +280,7 @@ def create_line_chart(df, y_col, title, height, width):
 def create_horizontal_bar_chart(df, x_col, y_col, title, height, width):
     counts = df.groupby(x_col)[x_col].count().reset_index(name='Count')
     counts = counts.sort_values('Count', ascending=True)
-    fig = px.bar(counts, x='Count', y=x_col, orientation='h', title=title, color_discrete_sequence=['#009E73'])
+    fig = px.bar(counts, x='Count', y=x_col, orientation='h', title=title, color_discrete_sequence=['#0C7BDC'])
     fig.update_layout(xaxis_title='', yaxis_title='', height=height, width=width, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
                       margin={
                           't':50,
@@ -294,12 +295,12 @@ def create_pie_chart(df, x_col, title, height, width):
     fig = px.pie(counts, values='Count', names=x_col, title=title,
                  color=x_col,  # Ensure this is the column used to differentiate slices
                  color_discrete_map={
-                     'Female': '#E69F00',  # Orange
-                     'Aboriginal': '#E69F00',
-                     'Non-English':'#E69F00',
-                     'Male': '#009E73',    # Green
-                     'Non-Aboriginal': '#009E73',
-                     'English':'#009E73'
+                     'Female': '#FFC20A',  # Orange
+                     'Aboriginal': '#FFC20A',
+                     'Non-English':'#0C7BDC',
+                     'Male': '0C7BDC',    # Green
+                     'Non-Aboriginal': '#0C7BDC',
+                     'English':'#FFC20A'
                  }                )
 
     # Update layout to move legend and control pie chart size
@@ -320,7 +321,9 @@ def create_pie_chart(df, x_col, title, height, width):
             yanchor="top",  # Align legend to the bottom of its box
             y=0.01,  # Move legend above the chart (1.1 is slightly above)
             xanchor="center",  # Align horizontally in the center
-            x=0.5  # Center the legend
+            x=0.5,  # Center the legend
+            itemwidth=50
+
         )
     )
 
@@ -339,7 +342,7 @@ def create_histogram(df, x_col, title, height, width):
     age_category_order = ['18-24', '25-29', '30-34', '35-39', '40-44', '45-49',
                           '50-54', '55-59', '60-64', '65-69', '70-74', '75-79',
                           '80-84', '85-89', '90-94', '95-99', '100+', 'Unknown']
-    fig = px.histogram(df, x=x_col, category_orders={x_col: age_category_order}, title=title, color_discrete_sequence=['#009E73'])
+    fig = px.histogram(df, x=x_col, category_orders={x_col: age_category_order}, title=title, color_discrete_sequence=['#0C7BDC'])
     fig.update_layout(xaxis_title='', yaxis_title='', height=height, width=width, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
                       margin={
                           't':50,
@@ -417,17 +420,17 @@ def update_metrics_and_charts(selected_year, selected_person_status):
         calls_change = reports_change = closed_cases_change = None
 
     # Generate Charts
-    fig_report = create_line_chart(line_chart_df, 'Type of Report', 'Number of Calls and Reports Over Time', height=339, width=557)
-    fig_gender = create_pie_chart(filtered_df, 'Gender', 'Gender', height=265, width=160)
-    fig_culture = create_pie_chart(filtered_df, 'Cultural Background', 'First Nation', height=265, width=160)
+    fig_report = create_line_chart(line_chart_df, 'Type of Report', 'Number of Calls and Reports Over Time', height=286, width=650)
+    fig_gender = create_pie_chart(filtered_df, 'Gender', 'Gender', height=235, width=190)
+    fig_culture = create_pie_chart(filtered_df, 'Cultural Background', 'First Nation', height=235, width=190)
     filtered_df['Language Category'] = filtered_df['Language'].apply(lambda x: 'English' if x == 'English' else 'Non-English')
-    fig_language_pie = create_pie_chart(filtered_df, 'Language Category', 'Language', height=265, width=160)
-    fig_age = create_histogram(filtered_df, 'Age Category', 'Age Distribution', height=225, width=810)
-    fig_abuse = create_horizontal_bar_chart(filtered_df, 'Type of Alleged Abuse', 'Count', 'Type of Alleged Abuse', height=339, width=329)
-    fig_reporter = create_horizontal_bar_chart(filtered_df, 'Reporters', 'Count', 'Relationship with the Reporters', height=339, width=380)
-    fig_action = create_horizontal_bar_chart(filtered_df, 'Primary Action Taken', 'Count', 'Primary Action Taken', height=265, width=380)
+    fig_language_pie = create_pie_chart(filtered_df, 'Language Category', 'Language', height=235, width=190)
+    fig_age = create_histogram(filtered_df, 'Age Category', 'Age Distribution', height=205, width=1025)
+    fig_abuse = create_horizontal_bar_chart(filtered_df, 'Type of Alleged Abuse', 'Count', 'Type of Alleged Abuse', height=295, width=445)
+    fig_reporter = create_horizontal_bar_chart(filtered_df, 'Reporters', 'Count', 'Relationship with the Reporters', height=295, width=445)
+    fig_action = create_horizontal_bar_chart(filtered_df, 'Primary Action Taken', 'Count', 'Primary Action Taken', height=227, width=445)
     non_english_df = filtered_df[filtered_df['Language'] != 'English']
-    fig_language = create_horizontal_bar_chart(non_english_df, 'Language', 'Count', 'Non-English Languages', height=265, width=329)
+    fig_language = create_horizontal_bar_chart(non_english_df, 'Language', 'Count', 'Non-English Languages', height=227, width=445)
 
     return (f"{num_calls:,}", f"{calls_change:.2f}% from prev. year" if calls_change else "-",
             f"{num_reports:,}", f"{reports_change:.2f}% from prev. year" if reports_change else "-",
@@ -437,4 +440,8 @@ def update_metrics_and_charts(selected_year, selected_person_status):
             fig_age, fig_abuse, fig_reporter, fig_action, fig_language)
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+  #   app.run_server(debug=True)
+
+    app.run_server(port=8050)
+    public_url = ngrok.connect(8050)
+    print("Dash app is running at:", public_url)
