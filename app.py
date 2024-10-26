@@ -422,15 +422,15 @@ def update_metrics_and_charts(selected_year, selected_person_status):
 
     # Generate Charts
     fig_report = create_line_chart(line_chart_df, 'Type of Report', 'Number of Calls and Reports Over Time', height=286, width=650)
-    fig_gender = create_pie_chart(filtered_df, 'Gender', 'Gender', height=235, width=190)
-    fig_culture = create_pie_chart(filtered_df, 'Cultural Background', 'First Nation', height=235, width=190)
-    filtered_df['Language Category'] = filtered_df['Language'].apply(lambda x: 'English' if x == 'English' else 'Non-English')
-    fig_language_pie = create_pie_chart(filtered_df, 'Language Category', 'Language', height=235, width=190)
-    fig_age = create_histogram(filtered_df, 'Age Category', 'Age Distribution', height=205, width=1025)
-    fig_abuse = create_horizontal_bar_chart(filtered_df, 'Type of Alleged Abuse', 'Count', 'Type of Alleged Abuse', height=295, width=445)
-    fig_reporter = create_horizontal_bar_chart(filtered_df, 'Reporters', 'Count', 'Relationship with the Reporters', height=295, width=445)
-    fig_action = create_horizontal_bar_chart(filtered_df, 'Primary Action Taken', 'Count', 'Primary Action Taken', height=227, width=445)
-    non_english_df = filtered_df[filtered_df['Language'] != 'English']
+    fig_gender = create_pie_chart(current_year_df, 'Gender', 'Gender', height=235, width=190)
+    fig_culture = create_pie_chart(current_year_df, 'Cultural Background', 'First Nation', height=235, width=190)
+    current_year_df['Language Category'] = current_year_df['Language'].apply(lambda x: 'English' if x == 'English' else 'Non-English')
+    fig_language_pie = create_pie_chart(current_year_df, 'Language Category', 'Language', height=235, width=190)
+    fig_age = create_histogram(current_year_df, 'Age Category', 'Age Distribution', height=205, width=1025)
+    fig_abuse = create_horizontal_bar_chart(current_year_df, 'Type of Alleged Abuse', 'Count', 'Type of Alleged Abuse', height=295, width=445)
+    fig_reporter = create_horizontal_bar_chart(current_year_df, 'Reporters', 'Count', 'Relationship with the Reporters', height=295, width=445)
+    fig_action = create_horizontal_bar_chart(current_year_df, 'Primary Action Taken', 'Count', 'Primary Action Taken', height=227, width=445)
+    non_english_df = current_year_df[current_year_df['Language'] != 'English']
     fig_language = create_horizontal_bar_chart(non_english_df, 'Language', 'Count', 'Non-English Languages', height=227, width=445)
 
     return (f"{num_calls:,}", f"{calls_change:.2f}% from prev. year" if calls_change else "-",
